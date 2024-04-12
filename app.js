@@ -17,7 +17,7 @@ const genAI = new GoogleGenerativeAI(key);
 const getWheather = async (city) => {
   const link = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4c0a11974562c7395505955f23a93fcb`;
   const response = await axios.get(link);
-  console.log(response.data);
+  // console.log(response.data);
   return response.data;
 };
 
@@ -29,12 +29,29 @@ const getPoi = async (source, destination) => {
     const response = await result.response;
 
     const text = response.text();
-    console.log(text);
+    // console.log(text);
     return text;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
+app.get("/", async (req, res) => {
+  try {
+
+
+    res.status(200).json({
+      status: 'sucess',
+      data: {
+        data:"sucess running"
+      },
+    });
+  } catch (error) {
+    res.status(404).json({
+        status:'fail',
+        message:error
+    })
+  }
+});
 
 app.get("/trip-info", async (req, res) => {
   try {
