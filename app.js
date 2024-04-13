@@ -6,7 +6,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const app = express();
 
 app.use(cors({
-    origin: 'https://tripbuddyplanner.netlify.app/'
+    origin: 'https://tripbuddyplanner.netlify.app'
   }));
 
 // dotenv.config({ path: "./config.env" });
